@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <Search/>
-      <p>Hello, world!</p>
     </>
   )
 }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../services/dictionaryApi.jsx"; // Import API function
+import { fetchData } from "../services/dictionaryApi.tsx"; // Import API function
 
 export default function Search() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
@@ -13,7 +13,9 @@ export default function Search() {
                 const result = await fetchData("hello"); // Fetch definition for "hello"
                 setData(result)
             } catch (error) {
-                setError(error.message);
+                if (error instanceof Error) {
+                    setError(error.message);
+                }
             } finally {
                 setLoading(false)
             }
