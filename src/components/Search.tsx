@@ -27,12 +27,12 @@ export default function Search() {
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
 
-    const handleSearch = (e) => {
+    const handleSearch = (e: any) => {
         e.preventDefault()
         console.log(searchTerm)
     }
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         setSearchTerm(e.target.value)
     }
 
