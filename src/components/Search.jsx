@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../services/dictionaryApi.tsx"; // Import API function
+import { fetchData } from "../services/dictionaryApi.jsx"; // Import API function
 
 export default function Search() {
     const [data, setData] = useState([]);
@@ -27,12 +27,12 @@ export default function Search() {
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error: {error}</div>
 
-    const handleSearch = (e: any) => {
+    const handleSearch = (e) => {
         e.preventDefault()
         console.log(searchTerm)
     }
 
-    const handleChange = (e: any) => {
+    const handleChange = (e) => {
         setSearchTerm(e.target.value)
     }
 
