@@ -1,53 +1,34 @@
-import { useEffect, useState } from "react";
-import { fetchData } from "../services/dictionaryApi.jsx"; // Import API function
+import { useState } from 'react'
+import { fetchData } from '../services/dictionaryApi'
+
 
 export default function Search() {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [searchTerm, setSearchTerm] = useState("")
+    const [definition, setDefinition] = useState(null)
+    const [searchWord, setSearchWord] = useState('')
 
-    useEffect(() => {
-        const getDefinition = async () => {
-            try {
-                const result = await fetchData("hello"); // Fetch definition for "hello"
-                setData(result)
-            } catch (error) {
-                if (error instanceof Error) {
-                    setError(error.message);
-                }
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        getDefinition()
-    }, []); // Empty dependency array to run only on mount
-
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-
-    const handleSearch = (e) => {
+    const handleSearch = async(e) => {
         e.preventDefault()
-        console.log(searchTerm)
+        try {
+            const result = await fetchData(searchWord)
+            setDefinition(result)
+        } catch (error) {
+            console.error("Failed to fetch definition:", error)
+        }
     }
 
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value)
+    const handleChange = function(e) {
+        setSearchWord(e.target.value)
     }
+
 
     return (
         <>
-        <h1>Data from API:</h1>
-        <form action="" onSubmit={handleSearch}>
-            <input
-                type="text"
-                placeholder="Try it here..."
-                value={searchTerm}
-                onChange={handleChange} 
-            />
-        </form>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+            <h1>This is the Search component</h1>
+            <form action="" onSubmit={handleSearch}>
+                <input onChange={handleChange} value={searchWord} type="search" name="" id="" />
+                <button type="submit">Get definition</button>
+            </form>
+            {definition && <pre>{JSON.stringify(definition, null, 2)}</pre>}
         </>
     )
 }
