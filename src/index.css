@@ -6,6 +6,15 @@
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
 
+  --accent: #A445ED;
+  --accent-secondary: #cdcdcd;
+
+  --bg-primary: #fff;
+  --bg-secondary: #f4f4f4;
+
+  --text-primary: #2d2d2d;
+  --text-secondary: #757575;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

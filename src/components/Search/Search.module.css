@@ -1,5 +1,33 @@
+.searchForm {
+    position: relative;
+}
+
+.search {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: none;
+    border-radius: 16px;
+    padding: 20px 24px;
+    font-weight: bold;
+    color: var(--text-primary)
+}
+
+.search:focus {
+    outline: 1px solid var(--accent);
+}
+
+.searchBtn {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    border: none
+}
+
 .searchIcon {
-    fill: red;
-    stroke: red;
-    color: red;
+    color: var(--accent);
+}
+
+button {
 }

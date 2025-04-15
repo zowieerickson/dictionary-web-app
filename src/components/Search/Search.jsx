@@ -4,9 +4,8 @@ import SearchIcon from '../../assets/images/icon-search.svg?react';
 import styles from './Search.module.css'
 
 
-export default function Search() {
-    const [definition, setDefinition] = useState(null)
-    const [searchWord, setSearchWord] = useState('')
+export default function Search({ searchWord, setSearchWord, setDefinition }) {
+
 
     const handleSearch = async(e) => {
         e.preventDefault()
@@ -26,11 +25,10 @@ export default function Search() {
     return (
         <>
             <h1>This is the Search component</h1>
-            <form action="" onSubmit={handleSearch}>
-                <input onChange={handleChange} value={searchWord} type="search" name="" id="" />
-                <button type="submit"><SearchIcon className={styles.searchIcon}/></button>
+            <form action="" onSubmit={handleSearch} className={styles.searchForm}>
+                <input onChange={handleChange} value={searchWord} className={styles.search} type="search" name="" id="" />
+                <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
-            {definition && <pre>{JSON.stringify(definition, null, 2)}</pre>}
         </>
     )
 }

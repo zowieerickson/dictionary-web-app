@@ -1,6 +1,17 @@
 #root {
-  max-width: 1280px;
-  /* margin: 0 auto;
-  padding: 2rem; */
-  /* text-align: center; */
+  max-width: 735px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+input[type="search"]::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;   
 }
