@@ -24,9 +24,8 @@ export default function Search({ searchWord, setSearchWord, setDefinition }) {
 
     return (
         <>
-            <h1>This is the Search component</h1>
             <form action="" onSubmit={handleSearch} className={styles.searchForm}>
-                <input onChange={handleChange} value={searchWord} className={styles.search} type="search" name="" id="" />
+                <input placeholder="Search for any word..." onChange={handleChange} value={searchWord} className={styles.search} type="search" name="" id="" />
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
         </>

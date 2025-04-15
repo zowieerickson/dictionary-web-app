@@ -12,6 +12,10 @@
     color: var(--text-primary)
 }
 
+.search::placeholder {
+    opacity: .25;
+}
+
 .search:focus {
     outline: 1px solid var(--accent);
 }
@@ -27,7 +31,4 @@
 
 .searchIcon {
     color: var(--accent);
-}
-
-button {
 }
