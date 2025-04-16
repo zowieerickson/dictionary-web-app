@@ -1,0 +1,10 @@
+
+.definitionWord {
+    /* font */
+    font-size: 64px;
+}
+
+.definitionPhonetic {
+    font-size: 24px;
+    color: var(--accent)
+}

@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import styles from './SearchResults.module.css'
 
 
 export default function SearchResults({ definition }) {
@@ -16,10 +17,10 @@ export default function SearchResults({ definition }) {
     console.log("the definition is", definition)
     return (
         <section>
-            <h1>{definition[0].word}</h1>
-            <p>{definition[0].phonetic}</p>
+            <h1 className={styles.definitionWord}>{definition[0].word}</h1>
+            <p className={styles.definitionPhonetic}>{definition[0].phonetic}</p>
             <p>{definition[0].meanings[0].definitions[0].definition}</p>
-            <button onClick={() => handlePlay}>{definition[0].phonetics[2].audio}</button>
+            {/* <button onClick={() => handlePlay}>{definition[0].phonetics[2].audio}</button> */}
             <button onClick={handlePlay}>Hello</button>
         </section>
     )
