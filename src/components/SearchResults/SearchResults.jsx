@@ -1,8 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import styles from './SearchResults.module.css'
 
 
 export default function SearchResults({ definition }) {
+    const [meanings, setMeanings] = useState('');
+
     if(!definition) return null
 
     const mp3Url = "https://api.dictionaryapi.dev/media/pronunciations/en/keyboard-us.mp3"; // Keyboard audio
