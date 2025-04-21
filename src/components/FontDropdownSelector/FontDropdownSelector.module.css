@@ -26,3 +26,11 @@
 .fontsList li:not(:last-child) {
     margin-bottom: 1em;
 }
+
+.fontsList li {
+    cursor: pointer;
+}
+
+.fontsList li:hover {
+    color: var(--accent)
+}
