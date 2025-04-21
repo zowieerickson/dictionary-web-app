@@ -1,0 +1,24 @@
+
+.fontSelector {
+    display: flex;
+    align-items: center;
+    gap: 1.125em;
+
+    background-color: inherit;
+    border: none;
+}
+
+.fontsList {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    min-width: 11.4em;
+
+
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 10%) 0px 5px 30px;
+    padding: 24px;
+}

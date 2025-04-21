@@ -1,6 +1,6 @@
 import AppIcon from '../../assets/images/logo.svg?react'
-import ArrowDownIcon from '../../assets/images/icon-arrow-down.svg?react'
 import styles from './Navbar.module.css'
+import FontDropdownSelector from '../FontDropdownSelector/FontDropdownSelector.jsx'
 
 
 export default function Navbar() {
@@ -8,15 +8,7 @@ export default function Navbar() {
         <nav className={styles.nav}>
             <a href="/"><AppIcon/></a>
             <div className={styles.controls}>
-                <button className={styles.fontSelector}>
-                    Sans Serif
-                    <ArrowDownIcon/>
-                </button>
-                <ul className={styles.fontsList}>
-                    <li>Sans Serif</li>
-                    <li>Serif</li>
-                    <li>Mono</li>
-                </ul>
+                <FontDropdownSelector/>
                 <div className='vertical-divider'></div>
             </div>
         </nav>
