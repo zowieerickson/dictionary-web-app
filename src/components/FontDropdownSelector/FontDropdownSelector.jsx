@@ -14,7 +14,6 @@ export default function FontDropdownSelector() {
 
     useEffect(() => {
         function handleDocumentClick(e) {
-            console.log(e.target, dropdownOpen)
             if (
                 !fontBtnRef.current.contains(e.target) &&
                 !fontDropdownRef.current.contains(e.target) &&
@@ -24,10 +23,18 @@ export default function FontDropdownSelector() {
             }
         }
 
+        function handleKeydown(e) {
+            if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+                setDropdownOpen(false)
+            }
+        }
+
         document.addEventListener("click", handleDocumentClick)
+        document.addEventListener("keydown", handleKeydown)
 
         return () => {
             document.removeEventListener("click", handleDocumentClick)
+            document.removeEventListener("keydown", handleKeydown)
         }
     }, [])
 
