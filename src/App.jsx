@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar/Navbar.jsx'
+import Header from './components/Header/Header.jsx'
 import Search from  './components/Search/Search.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
 import './App.css'
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      <Header/>
       <Search 
         searchWord={searchWord}
         setSearchWord={setSearchWord}

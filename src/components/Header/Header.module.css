@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 52px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.controls > svg {
+    margin-left: 20px;
+}
