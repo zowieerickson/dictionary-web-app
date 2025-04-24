@@ -21,14 +21,14 @@ export default function SearchResults({ definition }) {
     return (
         <section>
             <header className={styles.resultsHeader}>
-                <div class={styles.word}>
+                <div className={styles.word}>
                     <h1 className={styles.definitionWord}>{definition[0].word}</h1>
                     <p className={styles.definitionPhonetic}>{definition[0].phonetic}</p>
                 </div>
                 <button onClick={handlePlay}><IconPlay /></button>
             </header>
             <article>
-                {/* each meaning */}
+                <h3 className="label-line">{definition[0].meanings[0].partOfSpeech}</h3>
             </article>
             <p>{definition[0].meanings[0].definitions[0].definition}</p>
             {/* <button onClick={() => handlePlay}>{definition[0].phonetics[2].audio}</button> */}

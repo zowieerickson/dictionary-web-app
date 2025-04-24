@@ -32,3 +32,17 @@ button {
 .visible {
   display: block;
 }
+
+.label-line {
+  display: flex;
+  align-items: center;
+}
+
+
+.label-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin-left: 0.5rem;
+}
