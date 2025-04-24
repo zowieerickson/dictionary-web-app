@@ -27,6 +27,9 @@ export default function SearchResults({ definition }) {
                 </div>
                 <button onClick={handlePlay}><IconPlay /></button>
             </header>
+            <article>
+                {/* each meaning */}
+            </article>
             <p>{definition[0].meanings[0].definitions[0].definition}</p>
             {/* <button onClick={() => handlePlay}>{definition[0].phonetics[2].audio}</button> */}
             
