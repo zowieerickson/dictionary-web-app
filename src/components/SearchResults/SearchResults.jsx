@@ -3,18 +3,18 @@ import IconPlay from '../../assets/images/icon-play.svg?react'
 import styles from './SearchResults.module.css'
 
 
-export default function SearchResults({ definition }) {
+export default function SearchResults({ data }) {
     const [meanings, setMeanings] = useState('');
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
-        if (definition) {
-            const firstAudio = definition[0].phonetics.find(p => p.audio)
+        if (data) {
+            const firstAudio = data[0].phonetics.find(p => p.audio)
             setAudioFile(firstAudio?.audio || null)
         }
-    }, [definition])
+    }, [data])
 
-    if(!definition) return null
+    if(!data) return null
 
     const mp3UrlTest = audioFile
 
@@ -25,37 +25,38 @@ export default function SearchResults({ definition }) {
         })
     }
 
-    console.log("the definition is", definition)
+    console.log("the definition is", data) // To visualize data while building
     return (
         <section>
             <header className={styles.resultsHeader}>
                 <div className={styles.word}>
-                    <h1 className={styles.definitionWord}>{definition[0].word}</h1>
-                    <p className={styles.definitionPhonetic}>{definition[0].phonetic}</p>
+                    <h1 className={styles.definitionWord}>{data[0].word}</h1>
+                    <p className={styles.definitionPhonetic}>{data[0].phonetic}</p>
                 </div>
                 <button onClick={handlePlay}><IconPlay /></button>
             </header>
-            <article className={styles.result}>
-                <h2 className="label-line"><i>{definition[0].meanings[0].partOfSpeech}</i></h2>
-                <section className={`${styles.meaning} ${styles.resultSection}`}>
-                    <h3 className={styles.resultTitle}>Meaning</h3>
-                    <ul className={styles.meaningsList}>
-                        {definition[0].meanings[0].definitions.map((word) => (
-                            <li key={word.definition}>{word.definition}</li>
-                        ))}
-                    </ul>
-                </section>
-                <section className={`${styles.synonym} ${styles.resultSection}`}>
-                    <h3 className={styles.resultTitle}>Synonyms</h3>
-                    <ul className={styles.synonymsList}>{definition[0].meanings[0].synonyms.map(synonym => {
-                        {console.log(synonym)}
-                            return <li>{synonym}</li>
-                        })}
-                    </ul>
-                </section>
 
-                
-            </article>
+            {data[0].meanings.map(meaning => {
+                return <article className={styles.result}>
+                    <h2 className="label-line"><i>{meaning.partOfSpeech}</i></h2>
+                    <section className={`${styles.meaning} ${styles.resultSection}`}>
+                        <h3 className={styles.resultTitle}>Meaning</h3>
+                        <ul className={styles.meaningsList}>
+                            {meaning.definitions.map((word) => (
+                                <li key={word.definition}>{word.definition}</li>
+                            ))}
+                        </ul>
+                    </section>
+                    <section className={`${styles.synonym} ${styles.resultSection}`}>
+                        <h3 className={styles.resultTitle}>Synonyms</h3>
+                        <ul className={styles.synonymsList}>{meaning.synonyms.map(synonym => {
+                                return <li>{synonym}</li>
+                            })}
+                        </ul>
+                    </section>
+                </article>
+            })}
+
         </section>
     )
 }
