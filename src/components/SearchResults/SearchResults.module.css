@@ -14,25 +14,41 @@
     color: var(--accent)
 }
 
-.meaning {
+.result {
     margin-top: 40px;
 }
 
-.meaning h3 {
+.resultTitle {
     color: #757575;
-    margin-top: 40px;
     font-weight: normal;
 }
 
-.definitionsList {
+.resultSection {
+    margin-top: 40px;
+}
+
+.meaningsList {
     margin-top: 25px;
 }
 
-.definitionsList li {
+.meaningsList li {
     list-style-type: disc;
     margin-bottom: 13px;
 }
 
-.definitionsList li::marker {
+.meaningsList li::marker {
     color: var(--accent)
+}
+
+.synonym {
+    display: flex;
+}
+
+.synonymsList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    color: var(--accent);
+    font-weight: bold;
 }

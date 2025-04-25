@@ -35,14 +35,26 @@ export default function SearchResults({ definition }) {
                 </div>
                 <button onClick={handlePlay}><IconPlay /></button>
             </header>
-            <article className={styles.meaning}>
+            <article className={styles.result}>
                 <h2 className="label-line"><i>{definition[0].meanings[0].partOfSpeech}</i></h2>
-                <h3>Meaning</h3>
-                <ul className={styles.definitionsList}>
-                    {definition[0].meanings[0].definitions.map((word) => (
-                        <li key={word.definition}>{word.definition}</li>
-                    ))}
-                </ul> 
+                <section className={`${styles.meaning} ${styles.resultSection}`}>
+                    <h3 className={styles.resultTitle}>Meaning</h3>
+                    <ul className={styles.meaningsList}>
+                        {definition[0].meanings[0].definitions.map((word) => (
+                            <li key={word.definition}>{word.definition}</li>
+                        ))}
+                    </ul>
+                </section>
+                <section className={`${styles.synonym} ${styles.resultSection}`}>
+                    <h3 className={styles.resultTitle}>Synonyms</h3>
+                    <ul className={styles.synonymsList}>{definition[0].meanings[0].synonyms.map(synonym => {
+                        {console.log(synonym)}
+                            return <li>{synonym}</li>
+                        })}
+                    </ul>
+                </section>
+
+                
             </article>
         </section>
     )
