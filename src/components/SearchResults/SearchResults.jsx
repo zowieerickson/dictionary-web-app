@@ -36,18 +36,15 @@ export default function SearchResults({ definition }) {
                 <button onClick={handlePlay}><IconPlay /></button>
             </header>
             <article className={styles.meaning}>
-                <h3 className="label-line"><i>{definition[0].meanings[0].partOfSpeech}</i></h3>
-                <h4>Meaning</h4>
-                <ul>
+                <h2 className="label-line"><i>{definition[0].meanings[0].partOfSpeech}</i></h2>
+                <h3>Meaning</h3>
+                <ul className={styles.definitionsList}>
                     {definition[0].meanings[0].definitions.map(definition1 => {
                         return <li>{definition1.definition}</li>
                     })}
                 </ul>
                 
             </article>
-            <p>{definition[0].meanings[0].definitions[0].definition}</p>
-            {/* <button onClick={() => handlePlay}>{definition[0].phonetics[2].audio}</button> */}
-            
         </section>
     )
 }

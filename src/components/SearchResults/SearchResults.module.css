@@ -17,3 +17,22 @@
 .meaning {
     margin-top: 40px;
 }
+
+.meaning h3 {
+    color: #757575;
+    margin-top: 40px;
+    font-weight: normal;
+}
+
+.definitionsList {
+    margin-top: 25px;
+}
+
+.definitionsList li {
+    list-style-type: disc;
+    margin-bottom: 13px;
+}
+
+.definitionsList li::marker {
+    color: var(--accent)
+}
