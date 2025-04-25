@@ -10,7 +10,10 @@
 }
 
 .definitionPhonetic {
-    margin-top: 8px;
     font-size: 1.5rem;
     color: var(--accent)
+}
+
+.meaning {
+    margin-top: 40px;
 }
