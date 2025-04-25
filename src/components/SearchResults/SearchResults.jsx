@@ -39,11 +39,10 @@ export default function SearchResults({ definition }) {
                 <h2 className="label-line"><i>{definition[0].meanings[0].partOfSpeech}</i></h2>
                 <h3>Meaning</h3>
                 <ul className={styles.definitionsList}>
-                    {definition[0].meanings[0].definitions.map(definition1 => {
-                        return <li>{definition1.definition}</li>
-                    })}
-                </ul>
-                
+                    {definition[0].meanings[0].definitions.map((word) => (
+                        <li key={word.definition}>{word.definition}</li>
+                    ))}
+                </ul> 
             </article>
         </section>
     )
