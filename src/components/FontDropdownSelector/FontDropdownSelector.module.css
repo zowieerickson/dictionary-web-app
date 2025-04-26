@@ -29,6 +29,7 @@
 
 .fontsList li {
     cursor: pointer;
+    font-weight: bold;
 }
 
 .fontsList li:hover {

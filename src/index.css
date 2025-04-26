@@ -70,11 +70,9 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   font-family: 'Inter' !important;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
 
   --accent: #A445ED;
   --accent-secondary: #cdcdcd;

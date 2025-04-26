@@ -48,9 +48,9 @@ export default function FontDropdownSelector() {
                 className={`${styles.fontsList} ${dropdownOpen ? 'visible' : ''}`}
                 ref={fontDropdownRef}
             >
-                <li>Sans Serif</li>
-                <li>Serif</li>
-                <li>Mono</li>
+                <li className='sans-serif'>Sans Serif</li>
+                <li className='serif'>Serif</li>
+                <li className='mono'>Mono</li>
             </ul>
         </>
     )
