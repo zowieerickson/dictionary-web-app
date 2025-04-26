@@ -11,7 +11,16 @@
 
 .definitionPhonetic {
     font-size: 1.5rem;
-    color: var(--accent)
+    color: var(--accent);
+}
+
+.iconPlay {
+    fill: #A445ED;
+}
+
+.disabled {
+    fill: #b3b3b3;
+    cursor: not-allowed;
 }
 
 .result {

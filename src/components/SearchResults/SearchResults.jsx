@@ -25,7 +25,9 @@ export default function SearchResults({ data }) {
         })
     }
 
-    console.log("the definition is", data) // To visualize data while building
+    // console.log("the definition is", data) // To visualize data while building
+
+    console.log(mp3UrlTest)
     return (
         <section>
             <header className={styles.resultsHeader}>
@@ -33,7 +35,7 @@ export default function SearchResults({ data }) {
                     <h1 className={styles.definitionWord}>{data[0].word}</h1>
                     <p className={styles.definitionPhonetic}>{data[0].phonetic}</p>
                 </div>
-                <button onClick={handlePlay}><IconPlay /></button>
+                <button onClick={handlePlay}><IconPlay className={`${styles.iconPlay} ${!audioFile ? styles.disabled : ''}`} /></button>
             </header>
 
             {data[0].meanings.map(meaning => {
@@ -47,6 +49,7 @@ export default function SearchResults({ data }) {
                             ))}
                         </ul>
                     </section>
+                    {meaning.synonyms.length > 0 &&
                     <section className={`${styles.synonym} ${styles.resultSection}`}>
                         <h3 className={styles.resultTitle}>Synonyms</h3>
                         <ul className={styles.synonymsList}>{meaning.synonyms.map(synonym => {
@@ -54,6 +57,8 @@ export default function SearchResults({ data }) {
                             })}
                         </ul>
                     </section>
+                    }
+
                 </article>
             })}
 
