@@ -25,9 +25,8 @@ export default function SearchResults({ data }) {
         })
     }
 
-    // console.log("the definition is", data) // To visualize data while building
+    console.log("the definition is", data) // To visualize data while building
 
-    console.log(mp3UrlTest)
     return (
         <section>
             <header className={styles.resultsHeader}>

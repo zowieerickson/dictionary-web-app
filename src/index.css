@@ -56,8 +56,20 @@ h1, h2, h3, h4, h5, h6 {
 /* CSS RESET END */
 
 
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.mono {
+  font-family: monospace;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lora' !important;
   line-height: 1.5;
   font-weight: 400;
 
