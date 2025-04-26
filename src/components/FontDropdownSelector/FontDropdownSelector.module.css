@@ -1,10 +1,10 @@
-
 .fontSelector {
     display: flex;
     align-items: center;
     gap: 1.125em;
 
     background-color: inherit;
+    font-weight: bold;
     border: none;
 }
 

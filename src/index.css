@@ -57,19 +57,19 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .sans-serif {
-  font-family: sans-serif;
+  font-family: 'Inter' !important;
 }
 
 .serif {
-  font-family: serif;
+  font-family: 'Lora' !important;
 }
 
 .mono {
-  font-family: monospace;
+  font-family: 'Inconsolata' !important;
 }
 
 :root {
-  font-family: 'Lora' !important;
+  font-family: 'Inter' !important;
   line-height: 1.5;
   font-weight: 400;
 
