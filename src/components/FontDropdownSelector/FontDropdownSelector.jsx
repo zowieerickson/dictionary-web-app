@@ -4,7 +4,8 @@ import styles from './FontDropdownSelector.module.css'
 
 export default function FontDropdownSelector() {
     const [dropdownOpen, setDropdownOpen] = useState(false)
-    const [font, setFont] = useState(null)
+    const [fontStyle, setFontStyle] = useState(null)
+    const [fontText, setFontText] = useState('Sans Serif')
     const fontDropdownRef = useRef(null)
     const fontBtnRef = useRef(null)
     const dropdownOpenRef = useRef(dropdownOpen)
@@ -40,21 +41,25 @@ export default function FontDropdownSelector() {
     }, [])
 
     useEffect(() => {
-        document.body.className = font
-    }, [font])
+        document.body.className = fontStyle
+    }, [fontStyle])
 
     function handleFontSelection(e) {
         const fontFamily = e.target.className;
-
         if (fontFamily === 'sans-serif' || fontFamily === 'serif' || fontFamily === 'mono') {
-            setFont(fontFamily)
+            setFontStyle(fontFamily)
+        }
+
+        if (e.target.localName === 'li') {
+            const selectedFontText = e.target.innerText
+            setFontText(selectedFontText)
         }
     }
 
     return (
         <>
             <button onClick={() => setDropdownOpen(prev => !prev)} ref={fontBtnRef} className={styles.fontSelector} >
-                Sans Serif
+                {fontText}
                 <ArrowDownIcon/>
             </button>
             <ul onClick={handleFontSelection}
