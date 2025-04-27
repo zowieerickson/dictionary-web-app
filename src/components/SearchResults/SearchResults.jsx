@@ -5,7 +5,6 @@ import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 
 
 export default function SearchResults({ data, error }) {
-    const [meanings, setMeanings] = useState('');
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
@@ -15,18 +14,22 @@ export default function SearchResults({ data, error }) {
         }
     }, [data])
 
-    if(!data) return null
-
-    const mp3UrlTest = audioFile
-
     const handlePlay = () => {
-        const audio = new Audio(mp3UrlTest)
+        const audio = new Audio(audioFile)
         audio.play().catch((error) => {
             console.error('Error playing audio: ', error)
         })
     }
-
+    
     console.log("the definition is", data) // To visualize data while building
+
+    if (error) {
+        return <NoResultsMessage/>
+    }
+
+    if (!data) {
+        return null;
+    }
 
     return (
         <section>

@@ -5,7 +5,7 @@ import styles from './Search.module.css'
 import NoResultsMessage from '../NoResultsMessage/NoResultsMessage';
 
 
-export default function Search({ searchWord, setSearchWord, setData, error, setError }) {
+export default function Search({ searchWord, setSearchWord, setData, setError }) {
     const [loading, setLoading] = useState(false);
 
     const handleSearch = async(e) => {
@@ -18,8 +18,7 @@ export default function Search({ searchWord, setSearchWord, setData, error, setE
             const result = await fetchData(searchWord)
             setData(result)
         } catch (error) {
-            console.error("Failed to fetch definition:", error)
-            setError(NoResultsMessage)
+            setError('NoResultsMessage')
             setData(null)
         } finally {
             setLoading(false)
@@ -37,7 +36,6 @@ export default function Search({ searchWord, setSearchWord, setData, error, setE
                 <input placeholder="Search for any word..." onChange={handleChange} value={searchWord} className={styles.search} type="search" name="" id="" />
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
-            {error && error}
         </>
     )
 }

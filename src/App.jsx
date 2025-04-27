@@ -16,9 +16,7 @@ function App() {
       <Search 
         searchWord={searchWord}
         setSearchWord={setSearchWord}
-        data={data}
         setData={setData}
-        error={error}
         setError={setError}
       />
       <SearchResults
