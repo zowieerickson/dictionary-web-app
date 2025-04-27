@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer.jsx'
 import './App.css'
 
 function App() {
-  const [data, setDefinition] = useState(null)
+  const [data, setData] = useState(null)
   const [searchWord, setSearchWord] = useState('')
 
   return (
@@ -16,7 +16,7 @@ function App() {
         searchWord={searchWord}
         setSearchWord={setSearchWord}
         data={data}
-        setDefinition={setDefinition}
+        setData={setData}
       />
       <SearchResults
         data={data}

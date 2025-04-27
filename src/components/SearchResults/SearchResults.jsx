@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import IconPlay from '../../assets/images/icon-play.svg?react'
 import styles from './SearchResults.module.css'
+import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 
 
 export default function SearchResults({ data }) {
