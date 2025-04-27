@@ -4,7 +4,7 @@ import styles from './SearchResults.module.css'
 import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 
 
-export default function SearchResults({ data }) {
+export default function SearchResults({ data, error }) {
     const [meanings, setMeanings] = useState('');
     const [audioFile, setAudioFile] = useState('');
 

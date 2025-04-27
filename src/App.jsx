@@ -7,6 +7,7 @@ import './App.css'
 
 function App() {
   const [data, setData] = useState(null)
+  const [error, setError] = useState(null);
   const [searchWord, setSearchWord] = useState('')
 
   return (
@@ -17,9 +18,12 @@ function App() {
         setSearchWord={setSearchWord}
         data={data}
         setData={setData}
+        error={error}
+        setError={setError}
       />
       <SearchResults
         data={data}
+        error={error}
       />
       <Footer 
         data={data}

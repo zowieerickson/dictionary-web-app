@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { fetchData } from '../../services/dictionaryApi'
 import SearchIcon from '../../assets/images/icon-search.svg?react';
 import styles from './Search.module.css'
+import NoResultsMessage from '../NoResultsMessage/NoResultsMessage';
 
 
-export default function Search({ searchWord, setSearchWord, setData }) {
+export default function Search({ searchWord, setSearchWord, setData, error, setError }) {
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
 
     const handleSearch = async(e) => {
         e.preventDefault()
@@ -19,7 +19,7 @@ export default function Search({ searchWord, setSearchWord, setData }) {
             setData(result)
         } catch (error) {
             console.error("Failed to fetch definition:", error)
-            setError("Failed to fetch definition. Please try again")
+            setError(NoResultsMessage)
             setData(null)
         } finally {
             setLoading(false)
@@ -37,7 +37,7 @@ export default function Search({ searchWord, setSearchWord, setData }) {
                 <input placeholder="Search for any word..." onChange={handleChange} value={searchWord} className={styles.search} type="search" name="" id="" />
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
-            {error && <p className={styles.error}>{error}</p>}
+            {error && error}
         </>
     )
 }
