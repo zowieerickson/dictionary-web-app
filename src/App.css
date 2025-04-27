@@ -38,11 +38,15 @@ button {
   align-items: center;
 }
 
-
 .label-line::after {
   content: "";
   flex: 1;
   height: 1px;
   background: #ccc;
   margin-left: 0.5rem;
+}
+
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

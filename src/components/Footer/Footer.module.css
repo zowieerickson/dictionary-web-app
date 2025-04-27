@@ -15,8 +15,6 @@
 .sourceTitle {
     color: var(--text-secondary);
     font-weight: normal;
-    text-decoration: underline;
-    text-underline-offset: 3px;
 }
 
 .sourceLink {
@@ -25,7 +23,5 @@
     gap: 9px;
 
     color: var(--text-primary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
 }
 

@@ -10,8 +10,8 @@ export default function Footer({ data }) {
         <footer className={styles.footer}>
             <hr className={styles.footerLine}/>
             <div className={styles.source}>
-                <h4 className={styles.sourceTitle}>Source</h4>
-                <a className={styles.sourceLink} href={data[0].sourceUrls[0]} target="_blank" rel="noopener noreferrer">
+                <h4 className={`${styles.sourceTitle} underline`}>Source</h4>
+                <a className={`${styles.sourceLink} underline`} href={data[0].sourceUrls[0]} target="_blank" rel="noopener noreferrer">
                     {data[0].sourceUrls[0]}
                     <IconNewWindow />
                 </a>
