@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header/Header.jsx'
 import Search from  './components/Search/Search.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
+import Footer from './components/Footer/Footer.jsx'
 import './App.css'
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         setDefinition={setDefinition}
       />
       <SearchResults
+        data={data}
+      />
+      <Footer 
         data={data}
       />
     </>
