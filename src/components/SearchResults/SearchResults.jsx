@@ -39,26 +39,29 @@ export default function SearchResults({ data }) {
 
             {data[0].meanings.map(meaning => {
                 return <article className={styles.result}>
-                    <h2 className="label-line"><i>{meaning.partOfSpeech}</i></h2>
-                    <section className={`${styles.meaning} ${styles.resultSection}`}>
-                        <h3 className={styles.resultTitle}>Meaning</h3>
-                        <ul className={styles.meaningsList}>
-                            {meaning.definitions.map((word) => (
-                                <li key={word.definition}>{word.definition}</li>
-                            ))}
-                        </ul>
-                    </section>
-                    {meaning.synonyms.length > 0 &&
-                    <section className={`${styles.synonym} ${styles.resultSection}`}>
-                        <h3 className={styles.resultTitle}>Synonyms</h3>
-                        <ul className={styles.synonymsList}>{meaning.synonyms.map(synonym => {
-                                return <li>{synonym}</li>
-                            })}
-                        </ul>
-                    </section>
-                    }
+                            <h2 className="label-line"><i>{meaning.partOfSpeech}</i></h2>
+                            <section className={`${styles.meaning} ${styles.resultSection}`}>
+                                <h3 className={styles.resultTitle}>Meaning</h3>
+                                <ul className={styles.meaningsList}>
+                                    {meaning.definitions.map((word) => (
+                                        <>
+                                        <li key={word.definition}>{word.definition}</li>
+                                        {word.example && <li className={styles.meaningsExample}>{word.example}</li>}
+                                        </>
+                                    ))}
+                                </ul>
+                            </section>
+                            {meaning.synonyms.length > 0 &&
+                            <section className={`${styles.synonym} ${styles.resultSection}`}>
+                                <h3 className={styles.resultTitle}>Synonyms</h3>
+                                <ul className={styles.synonymsList}>{meaning.synonyms.map(synonym => {
+                                        return <li>{synonym}</li>
+                                    })}
+                                </ul>
+                            </section>
+                            }
 
-                </article>
+                        </article>
             })}
 
         </section>

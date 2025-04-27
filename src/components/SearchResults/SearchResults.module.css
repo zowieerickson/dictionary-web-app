@@ -45,6 +45,19 @@
     margin-bottom: 13px;
 }
 
+.meaningsList .meaningsExample {
+    list-style-type: none;
+    color: var(--text-secondary)
+}
+
+.meaningsExample::before {
+    content: "“";
+}
+
+.meaningsExample::after {
+    content: "”";
+}
+
 .meaningsList li::marker {
     color: var(--accent)
 }
