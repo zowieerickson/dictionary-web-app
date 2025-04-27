@@ -15,7 +15,21 @@
 }
 
 .iconPlay {
+    fill: rgba(164, 69, 237, .25);
+    transition: fill 0.1s ease;
+}
+
+.iconPlay path {
     fill: #A445ED;
+    transition: fill 0.1s ease;
+}
+
+.iconPlay:hover {
+    fill: rgba(164, 69, 237, 1);
+}
+
+.iconPlay:hover path {
+    fill: white
 }
 
 .disabled {
