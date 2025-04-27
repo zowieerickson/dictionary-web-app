@@ -20,6 +20,10 @@
 }
 
 .sourceLink {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
     color: var(--text-primary);
     text-decoration: underline;
     text-underline-offset: 3px;
