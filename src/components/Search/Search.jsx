@@ -5,8 +5,7 @@ import styles from './Search.module.css'
 import NoResultsMessage from '../NoResultsMessage/NoResultsMessage';
 
 
-export default function Search({ searchWord, setSearchWord, setData, setError }) {
-    const [loading, setLoading] = useState(false);
+export default function Search({ searchWord, setSearchWord, setData, setError, setLoading }) {
     const [hasSearched, setHasSearched] = useState(false)
 
     const handleSearch = async(e) => {
@@ -26,15 +25,11 @@ export default function Search({ searchWord, setSearchWord, setData, setError })
         }
 
     }
-    console.log(  searchWord )
 
     const handleChange = function(e) {
         setSearchWord(e.target.value)
     }
     
-    searchWord ? console.log('true word') : console.log(' false word')
-
-
     return (
         <>
             <form 

@@ -2,9 +2,10 @@ import { useEffect, useState, Fragment } from "react"
 import IconPlay from '../../assets/images/icon-play.svg?react'
 import styles from './SearchResults.module.css'
 import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
+import LoadingBar from "../LoadingBar/LoadingBar";
 
 
-export default function SearchResults({ data, error }) {
+export default function SearchResults({ data, error, loading }) {
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
@@ -23,6 +24,10 @@ export default function SearchResults({ data, error }) {
     
     console.log("the definition is", data) // To visualize data while building
 
+    if (loading) {
+        return <LoadingBar/>
+    }
+
     if (error) {
         return <NoResultsMessage/>
     }
@@ -30,6 +35,8 @@ export default function SearchResults({ data, error }) {
     if (!data) {
         return null;
     }
+
+
 
     return (
         <section>
