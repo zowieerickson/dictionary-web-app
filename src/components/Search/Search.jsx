@@ -47,6 +47,7 @@ export default function Search({ searchWord, setSearchWord, setData, setError })
                     onChange={handleChange}
                     value={searchWord}
                     className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
+                    role={(!searchWord && hasSearched) ? 'alert' : undefined}
                     name=""
                     id=""
                 />
