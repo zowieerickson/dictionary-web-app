@@ -32,3 +32,12 @@
 .searchIcon {
     color: var(--accent);
 }
+
+.errorMessage {
+    color: #ff5252;
+    margin-top: 8px;
+}
+
+.errorBorder:focus {
+    outline: 1px solid #ff5252;
+}
