@@ -28,9 +28,13 @@
     fill: white
 }
 
-.disabled {
-    fill: #b3b3b3;
+.iconPlay.disabled {
+    fill: rgba(179, 179, 179, .25);
     cursor: not-allowed;
+}
+
+.iconPlay.disabled  path{
+    fill: #b3b3b3;
 }
 
 .result {
