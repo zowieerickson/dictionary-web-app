@@ -48,8 +48,8 @@ export default function SearchResults({ data, error, loading }) {
                 <button onClick={handlePlay}><IconPlay className={`${styles.iconPlay} ${!audioFile ? styles.disabled : ''}`} /></button>
             </header>
 
-            {data[0].meanings.map(meaning => {
-                return <article key={meaning.partOfSpeech} className={styles.result}>
+            {data[0].meanings.map((meaning, index) => {
+                return <article key={`${meaning.partOfSpeech}-${index}`} className={styles.result}>
                             <h2 className="label-line"><i>{meaning.partOfSpeech}</i></h2>
                             <section className={`${styles.meaning} ${styles.resultSection}`}>
                                 <h3 className={styles.resultTitle}>Meaning</h3>
