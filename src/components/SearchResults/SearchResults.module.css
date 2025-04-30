@@ -88,3 +88,9 @@
     color: var(--accent);
     font-weight: bold;
 }
+
+.synonymsList li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
