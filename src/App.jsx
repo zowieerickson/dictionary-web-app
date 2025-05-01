@@ -25,6 +25,8 @@ function App() {
         data={data}
         error={error}
         loading={loading}
+        searchWord={searchWord}
+        setSearchWord={setSearchWord}
       />
       <Footer 
         data={data}

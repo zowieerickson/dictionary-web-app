@@ -1,30 +1,7 @@
-import { useState } from 'react'
-import { fetchData } from '../../services/dictionaryApi'
 import SearchIcon from '../../assets/images/icon-search.svg?react';
 import styles from './SearchInput.module.css'
-import NoResultsMessage from '../NoResultsMessage/NoResultsMessage';
 
-
-export default function SearchInput({ searchWord, setSearchWord, setData, setError, setLoading }) {
-    const [hasSearched, setHasSearched] = useState(false)
-
-    const handleSearch = async(e) => {
-        e.preventDefault()
-        setLoading(true) // Start loading
-        setError(null) // Reset error state on new search
-        setData(null) // Reset previous data
-        setHasSearched(true)
-        try {
-            const result = await fetchData(searchWord)
-            setData(result)
-        } catch (error) {
-            setError('NoResultsMessage')
-            setData(null)
-        } finally {
-            setLoading(false)
-        }
-
-    }
+export default function SearchInput({ searchWord, setSearchWord, hasSearched, handleSearch }) {
 
     const handleChange = function(e) {
         setSearchWord(e.target.value)
@@ -34,7 +11,10 @@ export default function SearchInput({ searchWord, setSearchWord, setData, setErr
         <>
             <form 
                 action=""
-                onSubmit={handleSearch}
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    handleSearch(searchWord)
+                }}
                 className={styles.searchForm}
             >
                 <input 

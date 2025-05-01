@@ -5,7 +5,7 @@ import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 import LoadingBar from "../LoadingBar/LoadingBar";
 
 
-export default function SearchResults({ data, error, loading }) {
+export default function SearchResults({ data, error, loading, searchWord, setSearchWord }) {
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
@@ -71,7 +71,7 @@ export default function SearchResults({ data, error, loading }) {
                             <section className={`${styles.synonym} ${styles.resultSection}`}>
                                 <h3 className={styles.resultTitle}>Synonyms</h3>
                                 <ul className={styles.synonymsList}>{meaning.synonyms.map((synonym, index) => {
-                                        return <li onClick={handleSynonym} key={`${synonym}-${index}`}>{synonym}</li>
+                                        return <li onClick={() => setSearchWord(synonym)} key={`${synonym}-${index}`}>{synonym}</li>
                                     })}
                                 </ul>
                             </section>
