@@ -1,8 +1,9 @@
 import SearchInput from "../SearchInput/SearchInput.jsx";
+import SearchResults from "../SearchResults/SearchResults.jsx";
 import { fetchData } from '../../services/dictionaryApi'
 import { useState } from "react";
 
-export default function DictionarySearchContainer({ searchWord, setSearchWord, setData, setError, setLoading }) {
+export default function DictionarySearchContainer({ searchWord, setSearchWord, data, setData, error, setError, loading, setLoading }) {
     const [hasSearched, setHasSearched] = useState(false)
 
     const handleSearch = async (word) => {
@@ -25,15 +26,26 @@ export default function DictionarySearchContainer({ searchWord, setSearchWord, s
     }
 
     return (
-        <SearchInput 
-        searchWord={searchWord}
-        setSearchWord={setSearchWord}
-        setData={setData}
-        setError={setError}
-        setLoading={setLoading}
-        handleSearch={handleSearch}
-        hasSearched={hasSearched}
-      />
+        <>
+            <SearchInput 
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+                setData={setData}
+                setError={setError}
+                setLoading={setLoading}
+                handleSearch={handleSearch}
+                hasSearched={hasSearched}
+            />
+            <SearchResults
+                data={data}
+                error={error}
+                loading={loading}
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+                handleSearch={handleSearch}
+            />
+        </>
+
     )
 
 }

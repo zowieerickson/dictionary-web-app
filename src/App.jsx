@@ -17,16 +17,12 @@ function App() {
       <DictionarySearchContainer 
         searchWord={searchWord}
         setSearchWord={setSearchWord}
-        setData={setData}
-        setError={setError}
-        setLoading={setLoading}
-      />
-      <SearchResults
         data={data}
+        setData={setData}
         error={error}
+        setError={setError}
         loading={loading}
-        searchWord={searchWord}
-        setSearchWord={setSearchWord}
+        setLoading={setLoading}
       />
       <Footer 
         data={data}

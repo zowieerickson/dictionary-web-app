@@ -5,7 +5,7 @@ import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 import LoadingBar from "../LoadingBar/LoadingBar";
 
 
-export default function SearchResults({ data, error, loading, searchWord, setSearchWord }) {
+export default function SearchResults({ data, error, loading, searchWord, setSearchWord, handleSearch }) {
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
@@ -24,9 +24,9 @@ export default function SearchResults({ data, error, loading, searchWord, setSea
     
     console.log("the definition is", data) // To visualize data while building
 
-    const handleSynonym = (e) => {
-        console.log(e.target.innerText)
-        console.log("YO")
+    const handleSynonym = (syn) => {
+        handleSearch(syn)
+        setSearchWord(syn)
     }
 
     if (loading) {
@@ -71,7 +71,10 @@ export default function SearchResults({ data, error, loading, searchWord, setSea
                             <section className={`${styles.synonym} ${styles.resultSection}`}>
                                 <h3 className={styles.resultTitle}>Synonyms</h3>
                                 <ul className={styles.synonymsList}>{meaning.synonyms.map((synonym, index) => {
-                                        return <li onClick={() => setSearchWord(synonym)} key={`${synonym}-${index}`}>{synonym}</li>
+                                        return <li 
+                                                    onClick={() => handleSynonym(synonym)} 
+                                                    key={`${synonym}-${index}`}>{synonym}
+                                                </li>
                                     })}
                                 </ul>
                             </section>
