@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { fetchData } from '../../services/dictionaryApi'
 import SearchIcon from '../../assets/images/icon-search.svg?react';
-import styles from './Search.module.css'
+import styles from './SearchInput.module.css'
 import NoResultsMessage from '../NoResultsMessage/NoResultsMessage';
 
 
-export default function Search({ searchWord, setSearchWord, setData, setError, setLoading }) {
+export default function SearchInput({ searchWord, setSearchWord, setData, setError, setLoading }) {
     const [hasSearched, setHasSearched] = useState(false)
 
     const handleSearch = async(e) => {

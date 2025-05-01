@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header/Header.jsx'
-import Search from  './components/Search/Search.jsx'
+import DictionarySearchContainer from './components/DictionarySearchContainer/DictionarySearchContainer.jsx'
 import SearchResults from './components/SearchResults/SearchResults.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import './App.css'
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Header/>
-      <Search 
+      <DictionarySearchContainer 
         searchWord={searchWord}
         setSearchWord={setSearchWord}
         setData={setData}

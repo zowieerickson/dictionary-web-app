@@ -24,6 +24,11 @@ export default function SearchResults({ data, error, loading }) {
     
     console.log("the definition is", data) // To visualize data while building
 
+    const handleSynonym = (e) => {
+        console.log(e.target.innerText)
+        console.log("YO")
+    }
+
     if (loading) {
         return <LoadingBar/>
     }
@@ -66,7 +71,7 @@ export default function SearchResults({ data, error, loading }) {
                             <section className={`${styles.synonym} ${styles.resultSection}`}>
                                 <h3 className={styles.resultTitle}>Synonyms</h3>
                                 <ul className={styles.synonymsList}>{meaning.synonyms.map((synonym, index) => {
-                                        return <li key={`${synonym}-${index}`}>{synonym}</li>
+                                        return <li onClick={handleSynonym} key={`${synonym}-${index}`}>{synonym}</li>
                                     })}
                                 </ul>
                             </section>
