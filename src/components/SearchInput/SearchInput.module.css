@@ -9,7 +9,6 @@
     border-radius: 16px;
     padding: 20px 24px;
     font-weight: bold;
-    color: var(--text-primary)
 }
 
 .search:focus {

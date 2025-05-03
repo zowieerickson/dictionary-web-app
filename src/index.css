@@ -89,6 +89,16 @@ h1, h2, h3, h4, h5, h6 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark-mode {
+  --bg-primary: #050505;
+  --text-primary: #fff;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary)
+}
+
 h1 {
   font-size: 3.555rem;
 }

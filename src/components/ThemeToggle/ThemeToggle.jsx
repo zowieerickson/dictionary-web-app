@@ -1,11 +1,23 @@
+import { useEffect, useState } from 'react'
 import styles from './ThemeToggle.module.css'
 
 export default function ThemeToggle() {
+    const [darkMode, setDarkMode] = useState(false)
 
-    return(
+    useEffect(() => {
+        document.body.className = darkMode ? "dark-mode" : ""
+
+    }, [darkMode])
+
+    return (
         <>
             <label className={styles.switch}>
-                <input type="checkbox" id="toggle" />
+                <input
+                    onClick={() => setDarkMode(prev => !prev)}
+                    type="checkbox"
+                    id="toggle"
+                    checked={darkMode}
+                />
                 <span className={styles.slider}></span>
             </label>
         </>
