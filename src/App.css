@@ -15,7 +15,7 @@ input[type="search"]::-ms-clear {
 .vertical-divider {
     width: 1px;
     background-color: #e9e9e9;
-    height: 2rem;
+    height: 32px;
     margin: 0px 1.625em;
 }
 
@@ -42,11 +42,12 @@ button {
   content: "";
   flex: 1;
   height: 1px;
-  background: #ccc;
+  background: var(--stroke);
   margin-left: 0.5rem;
 }
 
 .underline {
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-thickness: .3px;
 }

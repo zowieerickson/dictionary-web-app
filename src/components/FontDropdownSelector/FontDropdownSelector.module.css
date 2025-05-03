@@ -18,9 +18,9 @@
     min-width: 11.4em;
 
 
-    background-color: var(--bg-primary);
+    background-color: var(--dropdown-primary);
     border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 10%) 0px 5px 30px;
+    box-shadow: var(--dropdown-shadow);
     padding: 24px;
 }
 

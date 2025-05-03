@@ -13,7 +13,7 @@ export default function Header() {
                 <FontDropdownSelector/>
                 <div className='vertical-divider'></div>
                 <ThemeToggle />
-                <IconMoon />
+                <IconMoon className={styles.iconMoon} />
             </div>
         </header>
     )

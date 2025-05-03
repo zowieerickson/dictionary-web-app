@@ -55,7 +55,7 @@ export default function SearchResults({ data, error, loading, searchWord, setSea
 
             {data[0].meanings.map((meaning, index) => {
                 return <article key={`${meaning.partOfSpeech}-${index}`} className={styles.result}>
-                            <h2 className="label-line"><i>{meaning.partOfSpeech}</i></h2>
+                            <h2 className="label-line">{meaning.partOfSpeech}</h2>
                             <section className={`${styles.meaning} ${styles.resultSection}`}>
                                 <h3 className={styles.resultTitle}>Meaning</h3>
                                 <ul className={styles.meaningsList}>

@@ -25,7 +25,7 @@
 }
 
 .iconPlay:hover path {
-    fill: white
+    fill: #fff;
 }
 
 .iconPlay.disabled {
@@ -39,6 +39,11 @@
 
 .result {
     margin-top: 40px;
+}
+
+.partOfSpeech {
+    font-size: 1.5rem;
+    font-style: italic;
 }
 
 .resultTitle {
