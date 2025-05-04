@@ -3,8 +3,11 @@ import SearchResults from "../SearchResults/SearchResults.jsx";
 import { fetchData } from '../../services/dictionaryApi'
 import { useState } from "react";
 
-export default function DictionarySearchContainer({ searchWord, setSearchWord, data, setData, error, setError, loading, setLoading }) {
+export default function DictionarySearchContainer({ data, setData }) {
     const [hasSearched, setHasSearched] = useState(false)
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [searchWord, setSearchWord] = useState('')
 
     const handleSearch = async (word) => {
         console.log('handling FIRED')
