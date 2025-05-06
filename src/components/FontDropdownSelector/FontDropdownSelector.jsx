@@ -41,7 +41,9 @@ export default function FontDropdownSelector() {
     }, [])
 
     useEffect(() => {
-        document.body.className = fontStyle
+        const fonts = ['serif', 'mono', 'sans-serif']
+        document.body.classList.remove(...fonts)
+        document.body.classList.add(fontStyle)
     }, [fontStyle])
 
     function handleFontSelection(e) {

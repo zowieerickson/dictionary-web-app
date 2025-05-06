@@ -5,7 +5,7 @@ export default function ThemeToggle() {
     const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
-        document.body.className = darkMode ? "dark-mode" : ""
+        document.body.classList.toggle("dark-mode", darkMode)
 
     }, [darkMode])
 
