@@ -1,5 +1,6 @@
 import SearchIcon from '../../assets/images/icon-search.svg?react';
 import styles from './SearchInput.module.css'
+import Autocomplete from "../Autocomplete/Autocomplete.jsx"
 
 export default function SearchInput({ searchWord, setSearchWord, hasSearched, handleSearch }) {
 
@@ -29,6 +30,8 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
+            <Autocomplete />
+
         </>
     )
 }
