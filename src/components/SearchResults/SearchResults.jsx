@@ -5,7 +5,7 @@ import NoResultsMessage from "../NoResultsMessage/NoResultsMessage";
 import LoadingBar from "../LoadingBar/LoadingBar";
 
 
-export default function SearchResults({ data, error, loading, searchWord, setSearchWord, handleSearch }) {
+export default function SearchResults({ data, error, loading, setSearchWord, handleSearch }) {
     const [audioFile, setAudioFile] = useState('');
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function SearchResults({ data, error, loading, searchWord, setSea
         })
     }
     
-    console.log("the definition is", data) // To visualize data while building
+    // console.log("the definition is", data) // To visualize data while building
 
     const handleSynonym = (syn) => {
         handleSearch(syn)
@@ -40,8 +40,6 @@ export default function SearchResults({ data, error, loading, searchWord, setSea
     if (!data) {
         return null;
     }
-
-
 
     return (
         <section>

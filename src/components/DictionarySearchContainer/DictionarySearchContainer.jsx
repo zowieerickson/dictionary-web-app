@@ -43,7 +43,6 @@ export default function DictionarySearchContainer({ data, setData }) {
                 data={data}
                 error={error}
                 loading={loading}
-                searchWord={searchWord}
                 setSearchWord={setSearchWord}
                 handleSearch={handleSearch}
             />
