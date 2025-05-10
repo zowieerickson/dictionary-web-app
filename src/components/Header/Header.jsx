@@ -1,5 +1,4 @@
 import IconApp from '../../assets/images/logo.svg?react'
-import IconMoon from '../../assets/images/icon-moon.svg?react'
 import styles from './Header.module.css'
 import FontDropdownSelector from '../FontDropdownSelector/FontDropdownSelector.jsx'
 import ThemeToggle from '../ThemeToggle/ThemeToggle.jsx'
@@ -13,7 +12,6 @@ export default function Header() {
                 <FontDropdownSelector/>
                 <div className='vertical-divider'></div>
                 <ThemeToggle />
-                <IconMoon className={styles.iconMoon} />
             </div>
         </header>
     )

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './ThemeToggle.module.css'
+import IconMoon from '../../assets/images/icon-moon.svg?react'
 
 export default function ThemeToggle() {
     const [darkMode, setDarkMode] = useState(false)
@@ -20,6 +21,7 @@ export default function ThemeToggle() {
                 />
                 <span className={styles.slider}></span>
             </label>
+            <IconMoon className={styles.iconMoon} onClick={() => setDarkMode(prev => !prev)}/>
         </>
     )
 }
