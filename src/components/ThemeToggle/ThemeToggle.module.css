@@ -5,6 +5,10 @@
     height: 20px;
 }
 
+.iconMoon {
+    color: var(--icon-moon);
+}
+
 /* Hide default checkbox */
 .switch input {
     opacity: 0;
