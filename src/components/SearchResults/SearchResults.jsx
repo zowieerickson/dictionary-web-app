@@ -10,8 +10,16 @@ export default function SearchResults({ data, error, loading, setSearchWord, han
 
     useEffect(() => {
         if (data) {
-            const firstAudio = data[0].phonetics.find(p => p.audio)
-            setAudioFile(firstAudio?.audio || null)
+            const phonetics = data[0]?.phonetics || [];
+
+            // Try to find a "us" accent audio
+            const usAudio = phonetics.find(p => p.audio.includes("us"))
+            console.log(usAudio)
+
+            // Fallback to first available audio if no "us" audio found
+            const firstAvailable = usAudio || phonetics.find(p => p.audio)
+
+            setAudioFile(firstAvailable?.audio || null)
         }
     }, [data])
 
@@ -22,7 +30,7 @@ export default function SearchResults({ data, error, loading, setSearchWord, han
         })
     }
     
-    // console.log("the definition is", data) // To visualize data while building
+    console.log("the definition is", data) // To visualize data while building
 
     const handleSynonym = (syn) => {
         handleSearch(syn)

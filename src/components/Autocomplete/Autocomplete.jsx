@@ -9,7 +9,7 @@ export default function Autocomplete() {
             .then(data => setWordList(data))
     }, [])
 
-    console.log(wordList)
+    // console.log(wordList)
     return (
         <p>🚧 Search Autocomplete feature in the works 🏗️</p>
     )
