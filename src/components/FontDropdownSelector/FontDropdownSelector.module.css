@@ -5,6 +5,7 @@
 
     background-color: inherit;
     font-weight: bold;
+    font-size: 1rem;
     border: none;
     color: var(--text-primary)
 }
