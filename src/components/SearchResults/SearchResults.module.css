@@ -63,6 +63,16 @@
     margin-top: 40px;
 }
 
+.result h2 {
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+    .result h2 {
+        font-size: 1.125rem
+    }
+}
+
 .partOfSpeech {
     font-size: 1.5rem;
     font-style: italic;
