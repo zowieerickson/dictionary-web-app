@@ -5,20 +5,36 @@
     margin-top: 45px;
 }
 
+.word h1 {
+    font-size: 4rem;
+}
+
+@media screen and (max-width: 767px) {
+    .word h1 {
+        font-size: 2rem;
+    }
+}
+
 .definitionPhonetic {
     font-size: 1.5rem;
     color: var(--accent);
 }
 
 @media screen and (max-width: 767px) {
-    .iconPlay {
-        width: 48px;
+    .definitionPhonetic {
+        font-size: 1.125rem;
     }
 }
 
 .iconPlay {
     fill: rgba(164, 69, 237, .25);
     transition: fill 0.1s ease;
+}
+
+@media screen and (max-width: 767px) {
+    .iconPlay {
+        width: 48px;
+    }
 }
 
 .iconPlay path {
