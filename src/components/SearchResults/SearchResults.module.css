@@ -80,7 +80,14 @@
 
 .resultTitle {
     color: #757575;
+    font-size: 1.25rem;
     font-weight: normal;
+}
+
+@media screen and (max-width: 767px) {
+    .resultTitle {
+        font-size: 1rem;
+    }
 }
 
 .resultSection {
