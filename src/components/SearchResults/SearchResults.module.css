@@ -99,8 +99,15 @@
 }
 
 .meaningsList li {
+    font-size: 1.125rem;
     list-style-type: disc;
     margin-bottom: 13px;
+}
+
+@media screen and (max-width: 767px) {
+    .meaningsList li {
+        font-size: 15px;
+    }
 }
 
 .meaningsList .meaningsExample {
