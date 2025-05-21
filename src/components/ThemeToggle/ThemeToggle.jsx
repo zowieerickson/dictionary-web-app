@@ -14,10 +14,10 @@ export default function ThemeToggle() {
         <>
             <label className={styles.switch}>
                 <input
-                    onClick={() => setDarkMode(prev => !prev)}
                     type="checkbox"
                     id="toggle"
                     checked={darkMode}
+                    onChange={() => setDarkMode(prev => !prev)}
                 />
                 <span className={styles.slider}></span>
             </label>
