@@ -5,9 +5,15 @@
 
     background-color: inherit;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.125rem;
     border: none;
     color: var(--text-primary)
+}
+
+@media screen and (max-width: 767px) {
+    .fontSelector {
+        font-size: 0.875rem;
+    }
 }
 
 .fontsList {
