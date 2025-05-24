@@ -54,7 +54,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-            {searchWord.length > 0 &&
+            {searchWord.length > 0 && results.length > 0 &&
                 <ul className={styles.suggestionList}>
                     {searchWord.length > 0 && results.map(word => {
                         return <li className={styles.suggestion}>{word}</li> 
