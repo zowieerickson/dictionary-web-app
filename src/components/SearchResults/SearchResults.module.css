@@ -140,6 +140,16 @@
     font-weight: bold;
 }
 
+.synonymsList li {
+    font-size: 1.25rem;
+}
+
+@media screen and (max-width: 767px) {
+    .synonymsList li {
+        font-size: 1rem;
+    }
+}
+
 .synonymsList li:hover {
     cursor: pointer;
     text-decoration: underline;
