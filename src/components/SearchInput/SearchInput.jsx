@@ -6,8 +6,9 @@ import Autocomplete from "../Autocomplete/Autocomplete.jsx"
 export default function SearchInput({ searchWord, setSearchWord, hasSearched, handleSearch }) {
 
     const [wordList, setWordList] = useState([]);
-    const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const [isFocused, setIsFocused] = useState(false)
+
 
     useEffect(() => {
         fetch('/data/words.json')
@@ -50,6 +51,10 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <input 
                     placeholder="Search for any word..."
                     onChange={handleChange}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => {
+                        setTimeout(() => setIsFocused(false), 100)
+                    }}
                     value={searchWord}
                     className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
                     role={(!searchWord && hasSearched) ? 'alert' : undefined}
@@ -59,7 +64,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-            {searchWord.length > 0 && results.length > 0 &&
+            {isFocused && searchWord.length > 0 && results.length > 0 &&
                 <ul className={styles.suggestionList}>
                     {searchWord.length > 0 && results.map(word => {
                         return <li onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
