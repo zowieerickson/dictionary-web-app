@@ -17,6 +17,8 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
 
     // Debounce filter to come
     useEffect(() => {
+        
+
         const filteredList = wordList
             .filter(word => word.startsWith(searchWord.toLowerCase()))
             .slice(0, 10)
@@ -52,7 +54,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-            {results.map(word => {
+            {searchWord.length > 0 && results.map(word => {
                 return <p>{word}</p> 
             })}
             {/* <Autocomplete /> */}
