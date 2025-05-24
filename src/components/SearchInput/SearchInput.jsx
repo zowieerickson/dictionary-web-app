@@ -31,6 +31,11 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     const handleChange = function(e) {
         setSearchWord(e.target.value)
     }
+
+    const handleClickSearch = (word) => {
+        handleSearch(word)
+        setSearchWord(word)
+    }
     
     return (
         <>
@@ -57,7 +62,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
             {searchWord.length > 0 && results.length > 0 &&
                 <ul className={styles.suggestionList}>
                     {searchWord.length > 0 && results.map(word => {
-                        return <li className={styles.suggestion}>{word}</li> 
+                        return <li onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
                     })}
                 </ul>
             }
