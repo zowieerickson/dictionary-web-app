@@ -37,6 +37,12 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
         handleSearch(word)
         setSearchWord(word)
     }
+
+    const shouldShowSuggestions = 
+        isFocused &&
+        searchWord.length > 0 &&
+        results.length > 0 
+
     
     return (
         <>
@@ -64,9 +70,9 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
             </form>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-            {isFocused && searchWord.length > 0 && results.length > 0 &&
+            {shouldShowSuggestions &&
                 <ul className={styles.suggestionList}>
-                    {searchWord.length > 0 && results.map(word => {
+                    {results.map(word => {
                         return <li onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
                     })}
                 </ul>
