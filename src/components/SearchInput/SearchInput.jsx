@@ -54,21 +54,22 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 }}
                 className={styles.searchForm}
             >
-                <input 
-                    placeholder="Search for any word..."
-                    onChange={handleChange}
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => {
-                        setTimeout(() => setIsFocused(false), 100)
-                    }}
-                    value={searchWord}
-                    className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
-                    role={(!searchWord && hasSearched) ? 'alert' : undefined}
-                    name=""
-                    id=""
-                />
-                <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
-            </form>
+                <div className={styles.searchBar}>
+                    <input 
+                        placeholder="Search for any word..."
+                        onChange={handleChange}
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => {
+                            setTimeout(() => setIsFocused(false), 100)
+                        }}
+                        value={searchWord}
+                        className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
+                        role={(!searchWord && hasSearched) ? 'alert' : undefined}
+                        name=""
+                        id=""
+                    />
+                    <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
+                </div>
             {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
             {shouldShowSuggestions &&
                 <ul className={styles.suggestionList}>
@@ -77,6 +78,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                     })}
                 </ul>
             }
+            </form>
             {/* <Autocomplete /> */}
 
         </>
