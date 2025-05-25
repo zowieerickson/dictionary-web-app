@@ -52,6 +52,7 @@
 .suggestionList {
     background-color: var(--bg-primary);
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    box-shadow: var(--dropdown-shadow);
     padding: 12px 20px;
     margin-top: 1px;
     border-radius: 16px;
