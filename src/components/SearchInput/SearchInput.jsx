@@ -51,6 +51,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 onSubmit={(e) => {
                     e.preventDefault()
                     handleSearch(searchWord)
+                    setIsFocused(false)
                 }}
                 className={styles.searchForm}
             >
@@ -62,6 +63,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                         onBlur={() => {
                             setTimeout(() => setIsFocused(false), 100)
                         }}
+                        onKeyDown={() => setIsFocused(true)}
                         value={searchWord}
                         className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
                         role={(!searchWord && hasSearched) ? 'alert' : undefined}
