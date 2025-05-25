@@ -64,6 +64,20 @@
     grid-template-columns: repeat(3, 1fr)
 }
 
+@media screen and (max-width: 1068px) {
+    .suggestionList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .suggestionList {
+        grid-template-columns: 1fr;
+        max-height: calc(100vh - 375px);
+        overflow-y: auto;
+    }
+}
+
 .suggestion {
     margin-top: 7px;
     padding: 15px

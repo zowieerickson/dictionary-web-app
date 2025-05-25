@@ -4,7 +4,6 @@ import styles from './SearchInput.module.css'
 import Autocomplete from "../Autocomplete/Autocomplete.jsx"
 
 export default function SearchInput({ searchWord, setSearchWord, hasSearched, handleSearch }) {
-
     const [wordList, setWordList] = useState([]);
     const [results, setResults] = useState([]);
     const [isFocused, setIsFocused] = useState(false)
