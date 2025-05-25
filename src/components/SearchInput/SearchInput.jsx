@@ -22,7 +22,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
 
         const filteredList = wordList
             .filter(word => word.startsWith(searchWord.toLowerCase()))
-            .slice(0, 10)
+            .slice(0, 9)
 
         setResults(filteredList)
         console.log(searchWord)
