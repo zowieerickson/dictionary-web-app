@@ -65,6 +65,11 @@ export default function FontDropdownSelector() {
                 <ArrowDownIcon/>
             </button>
             <ul onClick={handleFontSelection}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleFontSelection(e)
+                    }
+                }}
                 className={`${styles.fontsList} ${dropdownOpen ? 'visible' : ''}`}
                 ref={fontDropdownRef}
                 role="listbox"
