@@ -15,13 +15,17 @@ export default function ThemeToggle() {
             <label className={styles.switch}>
                 <input
                     type="checkbox"
-                    id="toggle"
                     checked={darkMode}
                     onChange={() => setDarkMode(prev => !prev)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            setDarkMode(prev => !prev)
+                        }
+                    }}
                 />
                 <span className={styles.slider}></span>
             </label>
-            <IconMoon className={styles.iconMoon} onClick={() => setDarkMode(prev => !prev)}/>
+            <IconMoon className={styles.iconMoon} />
         </>
     )
 }
