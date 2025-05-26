@@ -56,6 +56,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     const handleClickSearch = (word) => {
         handleSearch(word)
         setSearchWord(word)
+        setIsFocused(false)
     }
 
     const shouldShowSuggestions = 
