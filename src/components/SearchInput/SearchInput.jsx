@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import SearchIcon from '../../assets/images/icon-search.svg?react';
 import styles from './SearchInput.module.css'
 import Autocomplete from "../Autocomplete/Autocomplete.jsx"
@@ -6,7 +6,9 @@ import Autocomplete from "../Autocomplete/Autocomplete.jsx"
 export default function SearchInput({ searchWord, setSearchWord, hasSearched, handleSearch }) {
     const [wordList, setWordList] = useState([]);
     const [results, setResults] = useState([]);
-    const [isFocused, setIsFocused] = useState(false)
+    const [isFocused, setIsFocused] = useState(false);
+
+    const wrapperRef = useRef(null)
 
     useEffect(() => {
         fetch('/data/words.json')
@@ -25,6 +27,28 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
 
     }, [ searchWord]);
 
+    // Detect focus within the container
+    useEffect(() => {
+        const wrapper = wrapperRef.current
+        const handleFocusIn = () => setIsFocused(true)
+        const handleFocusOut = (e) => {
+            // Delay to allow next element to receive focus
+            setTimeout(() => {
+                if (!wrapper.contains(document.activeElement)) {
+                    setIsFocused(false)
+                }
+            }, 0);
+        }
+
+        wrapper.addEventListener("focusin", handleFocusIn)
+        wrapper.addEventListener("focusout", handleFocusOut)
+
+        return () => {
+            wrapper.removeEventListener("focusin", handleFocusIn)
+            wrapper.removeEventListener("focusout", handleFocusOut)
+        }
+    })
+
     const handleChange = function(e) {
         setSearchWord(e.target.value)
     }
@@ -35,7 +59,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     }
 
     const shouldShowSuggestions = 
-        // isFocused &&
+        isFocused &&
         searchWord.length > 0 &&
         results.length > 0 
 
@@ -51,14 +75,16 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 }}
                 className={styles.searchForm}
             >
-                <div className={styles.searchBar}>
+                <div 
+                    ref={wrapperRef}
+                    className={styles.searchBar}
+                >
                     <input 
+                        aria-autocomplete="list"
+                        aria-expanded="true"
+                        aria-controls="suggestions"
                         placeholder="Search for any word..."
                         onChange={handleChange}
-                        onFocus={() => setIsFocused(true)}
-                        onBlur={() => {
-                            setTimeout(() => setIsFocused(false), 150)
-                        }}
                         onKeyDown={() => setIsFocused(true)}
                         value={searchWord}
                         className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}
@@ -68,15 +94,26 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                         id=""
                     />
                     <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
+                    {shouldShowSuggestions &&
+                    <ul className={styles.suggestionList} role="listbox">
+                        {results.map(word => {
+                            return <li
+                                        id="suggestions"
+                                        tabIndex="0"
+                                        role="option"
+                                        onClick={() => handleClickSearch(word)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter') {
+                                                handleClickSearch(word)
+                                            }
+                                        }}
+                                        className={styles.suggestion}>
+                                        {word}
+                                    </li> 
+                        })}
+                    </ul>}
                 </div>
                 {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-                {shouldShowSuggestions &&
-                <ul className={styles.suggestionList}>
-                    {results.map(word => {
-                        return <li tabIndex="0" onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
-                    })}
-                </ul>
-            }
             </form>
             {/* <Autocomplete /> */}
         </>
