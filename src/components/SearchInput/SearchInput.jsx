@@ -81,6 +81,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                     className={styles.searchBar}
                 >
                     <input 
+                        autoComplete="off"
                         aria-autocomplete="list"
                         aria-expanded={results.length > 0 ? true : false}
                         aria-controls="suggestions"
