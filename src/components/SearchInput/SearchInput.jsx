@@ -95,11 +95,10 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                     />
                     <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
                     {shouldShowSuggestions &&
-                    <ul className={styles.suggestionList} role="listbox">
+                    <ul className={styles.suggestionList} id="suggestions" role="listbox">
                         {results.map(word => {
                             return <li  
                                         key={word}
-                                        id="suggestions"
                                         tabIndex="0"
                                         role="option"
                                         onClick={() => handleClickSearch(word)}
