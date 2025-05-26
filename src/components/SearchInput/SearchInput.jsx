@@ -8,7 +8,6 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     const [results, setResults] = useState([]);
     const [isFocused, setIsFocused] = useState(false)
 
-
     useEffect(() => {
         fetch('/data/words.json')
             .then(res => res.json())
@@ -17,8 +16,6 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
 
     // Debounce filter to come
     useEffect(() => {
-        
-
         const filteredList = wordList
             .filter(word => word.startsWith(searchWord.toLowerCase()))
             .slice(0, 9)
@@ -60,19 +57,20 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                         onChange={handleChange}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => {
-                            setTimeout(() => setIsFocused(false), 100)
+                            setTimeout(() => setIsFocused(false), 150)
                         }}
                         onKeyDown={() => setIsFocused(true)}
                         value={searchWord}
-                        className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}type="search"
+                        className={`${styles.search} ${!searchWord && hasSearched ? styles.errorBorder : ''}`}
+                        type="search"
                         role={(!searchWord && hasSearched) ? 'alert' : undefined}
                         name=""
                         id=""
                     />
                     <button className={styles.searchBtn} type="submit" aria-label='Search'><SearchIcon className={styles.searchIcon}/></button>
                 </div>
-            {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
-            {shouldShowSuggestions &&
+                {!searchWord && hasSearched && (<p role="alert" className={styles.errorMessage}>Whoops, can't be empty...</p>)}
+                {shouldShowSuggestions &&
                 <ul className={styles.suggestionList}>
                     {results.map(word => {
                         return <li onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
@@ -81,7 +79,6 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
             }
             </form>
             {/* <Autocomplete /> */}
-
         </>
     )
 }

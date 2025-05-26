@@ -10,11 +10,16 @@ export default function DictionarySearchContainer({ data, setData }) {
     const [searchWord, setSearchWord] = useState('')
 
     const handleSearch = async (word) => {
-        console.log('handling FIRED')
+        if (word.trim() === '') {
+            setHasSearched(true)
+            setLoading(false)
+            return
+        }
+        setHasSearched(false)
         setLoading(true) // Start loading
         setError(null) // Reset error state on new search
         setData(null) // Reset previous data
-        setHasSearched(true)
+
         try {
             const result = await fetchData(word)
             console.log("Fetched result", result)
@@ -38,6 +43,7 @@ export default function DictionarySearchContainer({ data, setData }) {
                 setLoading={setLoading}
                 handleSearch={handleSearch}
                 hasSearched={hasSearched}
+                setHasSearched={setHasSearched}
             />
             <SearchResults
                 data={data}
