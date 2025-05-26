@@ -81,7 +81,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 >
                     <input 
                         aria-autocomplete="list"
-                        aria-expanded="true"
+                        aria-expanded={results.length > 0 ? true : false}
                         aria-controls="suggestions"
                         placeholder="Search for any word..."
                         onChange={handleChange}
