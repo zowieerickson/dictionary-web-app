@@ -67,10 +67,11 @@ export default function FontDropdownSelector() {
             <ul onClick={handleFontSelection}
                 className={`${styles.fontsList} ${dropdownOpen ? 'visible' : ''}`}
                 ref={fontDropdownRef}
+                role="listbox"
             >
-                <li className='sans-serif'>Sans Serif</li>
-                <li className='serif'>Serif</li>
-                <li className='mono'>Mono</li>
+                <li tabIndex="0" role="option" className='sans-serif'>Sans Serif</li>
+                <li tabIndex="0" role="option" className='serif'>Serif</li>
+                <li tabIndex="0" role="option" className='mono'>Mono</li>
             </ul>
         </>
     )
