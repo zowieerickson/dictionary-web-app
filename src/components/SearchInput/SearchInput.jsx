@@ -97,7 +97,8 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                     {shouldShowSuggestions &&
                     <ul className={styles.suggestionList} role="listbox">
                         {results.map(word => {
-                            return <li
+                            return <li  
+                                        key={word}
                                         id="suggestions"
                                         tabIndex="0"
                                         role="option"
