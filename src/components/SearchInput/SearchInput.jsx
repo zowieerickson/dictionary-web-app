@@ -16,15 +16,16 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
             .then(data => setWordList(data))
     }, [])
 
-    // Debounce filter to come
     useEffect(() => {
-        const filteredList = wordList
-            .filter(word => word.startsWith(searchWord.toLowerCase()))
-            .slice(0, 9)
+        const handler = setTimeout(() => {
+            const filteredList = wordList
+                .filter(word => word.startsWith(searchWord.toLowerCase()))
+                .slice(0, 9);
 
-        setResults(filteredList)
-        console.log(searchWord)
+            setResults(filteredList)
+        }, 300);
 
+        return () => clearTimeout(handler) // ✅ Clean up previous timeout
     }, [ searchWord]);
 
     // Detect focus within the container
@@ -62,7 +63,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     const shouldShowSuggestions = 
         isFocused &&
         searchWord.length > 0 &&
-        results.length > 0 
+        results.length > 0;
 
     
     return (
