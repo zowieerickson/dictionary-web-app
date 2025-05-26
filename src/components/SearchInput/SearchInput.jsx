@@ -35,7 +35,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
     }
 
     const shouldShowSuggestions = 
-        isFocused &&
+        // isFocused &&
         searchWord.length > 0 &&
         results.length > 0 
 
@@ -73,7 +73,7 @@ export default function SearchInput({ searchWord, setSearchWord, hasSearched, ha
                 {shouldShowSuggestions &&
                 <ul className={styles.suggestionList}>
                     {results.map(word => {
-                        return <li onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
+                        return <li tabIndex="0" onClick={() => handleClickSearch(word)} className={styles.suggestion}>{word}</li> 
                     })}
                 </ul>
             }
