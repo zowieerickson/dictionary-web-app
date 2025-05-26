@@ -35,6 +35,11 @@
     outline: none
 }
 
+.searchBtn:focus-visible {
+    outline: unset;
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
 .searchIcon {
     color: var(--accent);
 }
