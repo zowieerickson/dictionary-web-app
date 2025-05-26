@@ -78,8 +78,16 @@ export default function SearchResults({ data, error, loading, setSearchWord, han
                                 <h3 className={styles.resultTitle}>Synonyms</h3>
                                 <ul className={styles.synonymsList}>{meaning.synonyms.map((synonym, index) => {
                                         return <li 
-                                                    onClick={() => handleSynonym(synonym)} 
-                                                    key={`${synonym}-${index}`}>{synonym}
+                                                    onClick={() => handleSynonym(synonym)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter') {
+                                                            handleSynonym(synonym)
+                                                        }
+                                                    }}
+                                                    key={`${synonym}-${index}`}
+                                                    tabIndex="0"
+                                                >
+                                                    {synonym}
                                                 </li>
                                     })}
                                 </ul>
