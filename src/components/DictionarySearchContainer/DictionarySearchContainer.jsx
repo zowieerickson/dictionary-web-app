@@ -22,7 +22,6 @@ export default function DictionarySearchContainer({ data, setData }) {
 
         try {
             const result = await fetchData(word)
-            console.log("Fetched result", result)
             setData(result)
         } catch (error) {
             console.error(error)

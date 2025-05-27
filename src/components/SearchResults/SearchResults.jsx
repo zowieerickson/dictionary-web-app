@@ -14,7 +14,6 @@ export default function SearchResults({ data, error, loading, setSearchWord, han
 
             // Try to find a "us" accent audio
             const usAudio = phonetics.find(p => p.audio.includes("us"))
-            console.log(usAudio)
 
             // Fallback to first available audio if no "us" audio found
             const firstAvailable = usAudio || phonetics.find(p => p.audio)
@@ -29,8 +28,6 @@ export default function SearchResults({ data, error, loading, setSearchWord, han
             console.error('Error playing audio: ', error)
         })
     }
-    
-    console.log("the definition is", data) // To visualize data while building
 
     const handleSynonym = (syn) => {
         handleSearch(syn)

@@ -29,7 +29,6 @@ export default function Autocomplete() {
         return () => clearTimeout(timeout);
     }, [query, wordList]);
 
-    console.log(wordList)
     return (
         <>
         <ul style={{ border: '1px solid #ccc', marginTop: '0', padding: '0', listStyle: 'none' }}>
