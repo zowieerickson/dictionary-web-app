@@ -30,6 +30,7 @@ Users should be able to:
 - Switch between serif, sans serif, and monospace fonts
 - Switch between light and dark themes
 - View the optimal layout for the interface depending on their device's screen size
+- See error handling and fallback UI for network issues or empty results
 - See hover and focus states for all interactive elements on the page
 
 ### Screenshot
@@ -60,6 +61,11 @@ Users should be able to:
 
 ### Continued development
 
+- Plan to integrate GraphQL to fetch only relevant data from the dictionary API for improved performance
+- Cache recent searches for faster load and offline support
+- Add voice search support for improved usability
+- Implement unit and integration tests for critical components
+- Optimize mobile responsiveness and touch interactions
 - Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 - Refactor components into separate, modular components
 
