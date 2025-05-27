@@ -45,14 +45,15 @@ Users should be able to:
 
 ### Built with
 
+- [React](https://react.dev/) - JavaScript library
+- [Free Dictionary API](https://dictionaryapi.dev/) - Third-party API Integration
+- [CSS Modules](https://github.com/css-modules/css-modules) - For styles
+- Focus on accessibility
 - Semantic HTML5 markup
-- CSS Grid
 - CSS custom properties
+- CSS Grid
 - Flexbox
 - Mobile-first workflow
-- JavaScript
-- [React](https://react.dev/) - JS library
-- [CSS Modules](https://github.com/css-modules/css-modules) - For styles
 
 ### What I learned
 
