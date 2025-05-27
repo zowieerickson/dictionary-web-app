@@ -5,7 +5,7 @@ export default function NoResultsMessage() {
         <section className={styles.noResults}>
             <h1>😕</h1>
             <h2>No Definitions Found</h2>
-            <p>We couldn't find a definition for that word. Please try another search.</p>
+            <p>We couldn't find a definition for that&nbsp;word.<br/> Please try another search.</p>
         </section>
     )
 }
