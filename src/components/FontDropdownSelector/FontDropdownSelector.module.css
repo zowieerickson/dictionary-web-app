@@ -1,7 +1,7 @@
 .fontSelector {
     display: flex;
     align-items: center;
-    gap: 1.125em;
+    gap: 1em;
 
     background-color: inherit;
     font-weight: bold;
