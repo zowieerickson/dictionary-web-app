@@ -54,6 +54,13 @@
 .errorMessage {
     color: #ff5252;
     margin-top: 8px;
+    font-size: 1.125rem;
+}
+
+@media screen and (max-width: 767px) {
+    .errorMessage {
+        font-size: 1rem;
+    }
 }
 
 .search.errorBorder {
