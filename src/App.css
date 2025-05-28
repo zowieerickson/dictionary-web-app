@@ -4,6 +4,12 @@
   padding: 2rem;
 }
 
+@media screen and (max-width: 767px) {
+  #root {
+      font-size: 1.5em;
+  }
+}
+
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
