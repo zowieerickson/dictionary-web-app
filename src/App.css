@@ -35,10 +35,6 @@ button {
   border: none;
 }
 
-.visible {
-  display: block;
-}
-
 .label-line {
   display: flex;
   align-items: center;

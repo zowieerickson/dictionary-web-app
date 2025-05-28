@@ -70,7 +70,7 @@ export default function FontDropdownSelector() {
                         handleFontSelection(e)
                     }
                 }}
-                className={`${styles.fontsList} ${dropdownOpen ? 'visible' : ''}`}
+                className={styles.fontsList} style={{display: dropdownOpen ? 'block' : 'none'}}
                 ref={fontDropdownRef}
                 role="listbox"
             >
