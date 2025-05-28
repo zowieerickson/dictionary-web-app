@@ -23,11 +23,17 @@
     top: 45px;
     min-width: 11.4em;
 
-
+    font-size: 1.125rem;
     background-color: var(--dropdown-primary);
     border-radius: 16px;
     box-shadow: var(--dropdown-shadow);
     padding: 24px;
+}
+
+@media screen and (max-width: 767px) {
+    .fontsList {
+        font-size: 0.875rem;
+    }
 }
 
 .fontsList li:not(:last-child) {
